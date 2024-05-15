@@ -4,7 +4,7 @@ from send_email import send_email
 api_key = "0a16379b1db84fd6a69dd27ff09bafad"
 url = "https://newsapi.org/v2/everything?q=nvdia&" \
       "sortBy=publishedAt&apiKey=" \
-      "0a16379b1db84fd6a69dd27ff09bafad"
+      "0a16379b1db84fd6a69dd27ff09bafad&language=en"
 
 # Make request
 request = requests.get(url)
