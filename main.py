@@ -1,8 +1,8 @@
 import requests
-import os
+from send_email import send_email
 
-my_secret = os.environ['API_KEY']
-url = "https://newsapi.org/v2/everything?q=nvidia&" \
+api_key = "0a16379b1db84fd6a69dd27ff09bafad"
+url = "https://newsapi.org/v2/everything?q=nvdia&" \
       "sortBy=publishedAt&apiKey=" \
       "0a16379b1db84fd6a69dd27ff09bafad"
 
@@ -13,6 +13,10 @@ request = requests.get(url)
 content = request.json()
 
 # Access the article titles and description
+body = ""
 for article in content["articles"]:
-  print(article["title"])
-  print(article["description"])
+    if article["title"] is not None:
+        body = body + article["title"] + "\n" + str(article["description"]) + 2*"\n"
+
+body = body.encode("utf-8")
+send_email(message=body)
