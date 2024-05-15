@@ -1,9 +1,11 @@
 import requests
 from send_email import send_email
 
+topic = "nvdia"
+
 api_key = "0a16379b1db84fd6a69dd27ff09bafad"
 url = "https://newsapi.org/v2/everything?" \
-       "q=nvdia&" \
+       f"q={topic}&" \
       "sortBy=publishedAt" \
       "&apiKey=0a16379b1db84fd6a69dd27ff09bafad" \
       "&language=en"
